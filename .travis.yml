@@ -1,0 +1,15 @@
+sudo: false
+dist: trusty
+language: generic
+
+before_install:
+  - export -f travis_nanoseconds
+  - export -f travis_fold
+  - export -f travis_time_start
+  - export -f travis_time_finish
+
+deploy:
+  - provider: script
+    on:
+      branch: master
+    script: $TRAVIS_BUILD_DIR/deploy.sh
